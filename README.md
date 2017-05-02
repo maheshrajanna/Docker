@@ -18,13 +18,21 @@ on laptops, data center VMs, and any cloud.”
 
 # Container vs VM
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Container vs VM.png?raw=true "Optional Title")
+
 
 # Docker System
+
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/System.png?raw=true "Optional Title")
+
 
 # Images
 
 * Images are static frozen time containers where we launch containers from.  Images may be single or comprised of 2 or more layered images.
 # Working with Images
+
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Images.png?raw=true "Optional Title")
+
 
 # File command description
 
@@ -40,6 +48,9 @@ on laptops, data center VMs, and any cloud.”
 
 
 #Docker File
+
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Docker File.png?raw=true "Optional Title")
+
 
 Docker file creation! 
 
@@ -75,6 +86,9 @@ SECURE
 
 Working with containers
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Containers.png?raw=true "Optional Title")
+
+
 # Container commands
 
 # docker run -it myadmin /bin/bash
@@ -101,8 +115,14 @@ root        81     0  0 00:00 ?        00:00:00 bash
 
 # PID
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/PID.png?raw=true "Optional Title")
+
 
 # Registries and Repositories
+
+
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Reg.png?raw=true "Optional Title")
+
 
 * Docker Hub
 * Docker Hub is a registry (repository) where we pull images, public by default. In registry there will be number of repos. We can maintain private registry at docker hub. 
