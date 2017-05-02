@@ -18,7 +18,7 @@ on laptops, data center VMs, and any cloud.”
 
 # Container vs VM
 
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Container vs VM.png?raw=true "Optional Title")
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/VM.png?raw=true "Optional Title")
 
 
 # Docker System
@@ -49,7 +49,7 @@ on laptops, data center VMs, and any cloud.”
 
 #Docker File
 
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Docker File.png?raw=true "Optional Title")
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/File.png?raw=true "Optional Title")
 
 
 Docker file creation! 
