@@ -98,7 +98,8 @@ Working with containers
 # docker stop myadmin  
 # docker start myadmin
 
-# docker attach myadmin (attaching a detached container) (Attache PID 1 inside the container) 
+# docker attach myadmin (attaching a detached container) (Attache PID 1 inside the container) 									(you can attacheh containers only created with /bin/bash)
+
   CTL+P+Q  (Detach container)
 
 # docker exce –it myadmin bash (connecting container in bash)
@@ -144,26 +145,33 @@ root        81     0  0 00:00 ?        00:00:00 bash
 
 ```
 # docker images
-# docker tag b0cd0ff98940 maheshraj/smart_private:1.0
-# docker push maheshraj/smart_private:1.0
-```
-```
+
+  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+# docker tag imageID maheshraj/smart_private:1.0    (where as "maheshraj/smart_private" is repository we have creted in docker HUB)
+
 # docker login
-# docker push maheshraj/smart_private:1.0
-# docker pull maheshraj/smart_private:1.0
+# docker push maheshraj/smart_private:1.0  (Pushing the tagged image to docker HUB with 1:0 version)
 ```
+```
+# docker rmi maheshraj/smart_private:1.0 (removing tagged image from local host)
+# docker pull maheshraj/smart_private:1.0 (Pulling the images from our docker hub)
+```
+
 
 # Private Docker Registries
 
+  We can creted our own private registry in our local host by creating "registry" container. 
 ```
-#docker run -d -p 5000:5000 --restart=always --name registry registry:2
+#docker run -d -p 5000:5000 --restart=always --name registry registry:2  (exposing 5000 port to local host from container)
+									 (--restart=always Always starts when host starts) 
+									 
 #docker pull Ubuntu 
-#docker tag 6a2f32de169d localhost.localdomain:5000/Ubuntu
+#docker tag imageID localhost.localdomain:5000/Ubuntu (where as "localhost.localdomain:5000" is repository we have creted in local Repo)
 ```
 ```
-#docker push localhost.localdomain:5000/Ubuntu (Pushing to private Registry)
+#docker push localhost.localdomain:5000/Ubuntu 	(Pushing to private Registry)
 #docker rmi 6a2f32de169d (remove image)
-#docker pull localhost.localdomain:5000/Ubuntu(Pulling from private Registry)
+#docker pull localhost.localdomain:5000/Ubuntu	(Pulling from private Registry)
 ```
 
 
