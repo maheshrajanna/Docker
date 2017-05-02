@@ -71,8 +71,8 @@ CMD ["apache2ctl","-D","FOREGROUND"]
 **Build image from docker file**
 
 ```
-# docker build -t new-web:0.1 .  
-# docker history 3b29b1d73db1  (new-web image ID )
+# docker build -t new-web:0.1 .    [Building a docker image from file "." represents the docker file in same location]
+# docker history containerID       [Checking last build detials]
 
 ```
 
@@ -92,22 +92,31 @@ Working with containers
 ### Container commands
 
 ```
-# docker run -it myadmin /bin/bash
-# docker run –it -d myadmin
-# docker stop myadmin
+# docker run -it --name=myadmin myadmin /bin/bash  (docker run interactivemode definingName Image /bin/bash )
+						
+# docker run –it -d myadmin (-d running in detached mode)
+# docker stop myadmin  
 # docker start myadmin
-# docker attach myadmin (Attache PID 1 inside the container)
-CTL+P+Q  (Detach container)
-# docker exce –it myadmin bash
-#docker ps / docker ps -a
+
+# docker attach myadmin (attaching a detached container) (Attache PID 1 inside the container) 
+  CTL+P+Q  (Detach container)
+
+# docker exce –it myadmin bash (connecting container in bash)
+
+# docker ps / docker ps -a  (listing container running/exited)
+
 # docker ps –l (Shows last container we ran)
-# ls /var/lib/docker/containers/
-# docker inspect myadmin
-# docker stop myadmin
-# docker rm myadmin (rmi for images)
-# docker top mysql3 (checking running services without inside container PID will be differed )
-# docker exec -it mysql3 bash
-# ps –ef
+
+# ls /var/lib/docker/containers/containerID  (container details Path)
+
+# docker inspect myadmin (getting container detailed information)
+
+# docker rm myadmin (rmi for images) (Deleting container and images)
+
+# docker top myadmin (checking running services without outside container PID will be differed form inside container)
+
+# ps –ef  (Chechinf PID inside container)
+
 UID        PID  PPID  C STIME TTY          TIME CMD
 mysql        1     0  0 Apr27 ?        00:00:04 mysqld
 root        81     0  0 00:00 ?        00:00:00 bash
