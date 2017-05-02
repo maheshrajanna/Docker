@@ -127,14 +127,19 @@ root        81     0  0 00:00 ?        00:00:00 bash
 
 # Docker Networking
 
+
+
+
+
 Working with Ports
 
-EXPOSE	Document where a service is available, but not create any mapping to the host
---expose	Expose a port at runtime, but not create any mapping to the host
--p		Create a port mapping rule like -p ip:hostPort:containerPort. containerPort is 		required. If no hostPort is specified, Docker will automatically allocate one.
--P		Map a dynamically allocated host port to all container ports that have been 			exposed by the Dockerfile
---link	Create a link between a consumer and service container, like --link name:alias. 		This will create a set of environment variables and add entries into the 			consumer container's /etc/hosts file. You must also expose or publish ports.
-         “All published (-p or -P) ports are exposed, but not all exposed (EXPOSE or --expose) ports are published”
+* [EXPOSE]   -  Document where a service is available, but not create any mapping to the host
+* [--expose] -	Expose a port at runtime, but not create any mapping to the host
+* [-p	]    -	Create a port mapping rule like -p ip:hostPort:containerPort. containerPort is required. If no hostPort is                               specified, Docker will automatically allocate one.
+* [-P	]    -	Map a dynamically allocated host port to all container ports that have been exposed by the Dockerfile
+* [--link]   -    Create a link between a consumer and service container, like --link name:alias. This will create a set of environment                   variables and add entries into the consumer container's /etc/hosts file. You must also expose or publish ports.
+   
+   “All published (-p or -P) ports are exposed, but not all exposed (EXPOSE or --expose) ports are published”
 
 
 # Netwok commands
