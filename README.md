@@ -31,7 +31,7 @@ on laptops, data center VMs, and any cloud.”
 * Images are static frozen time containers where we launch containers from.  Images may be single or comprised of 2 or more layered images.
 # Working with Images
 
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Images.png?raw=true "Optional Title")
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/images.png?raw=true "Optional Title")
 
 
 # File command description
@@ -49,7 +49,7 @@ on laptops, data center VMs, and any cloud.”
 
 #Docker File
 
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/File.png?raw=true "Optional Title")
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/file.png?raw=true "Optional Title")
 
 
 Docker file creation! 
