@@ -129,28 +129,33 @@ root        81     0  0 00:00 ?        00:00:00 bash
 
 # Working with Registries
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/repo.png?raw=true "Optional Title")
+
 # Working with Docker Hub
 
+```
 # docker images
 # docker tag b0cd0ff98940 maheshraj/smart_private:1.0
 # docker push maheshraj/smart_private:1.0
-
-
+```
+```
 # docker login
 # docker push maheshraj/smart_private:1.0
 # docker pull maheshraj/smart_private:1.0
-
+```
 
 # Private Docker Registries
 
+```
 #docker run -d -p 5000:5000 --restart=always --name registry registry:2
 #docker pull Ubuntu 
 #docker tag 6a2f32de169d localhost.localdomain:5000/Ubuntu
-	
+```
+```
 #docker push localhost.localdomain:5000/Ubuntu (Pushing to private Registry)
 #docker rmi 6a2f32de169d (remove image)
 #docker pull localhost.localdomain:5000/Ubuntu(Pulling from private Registry)
-
+```
 
 
 # Docker Networking
