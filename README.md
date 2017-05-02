@@ -89,8 +89,9 @@ Working with containers
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Containers.png?raw=true "Optional Title")
 
 
-# Container commands
+### Container commands
 
+```
 # docker run -it myadmin /bin/bash
 # docker run –it -d myadmin
 # docker stop myadmin
@@ -100,20 +101,19 @@ CTL+P+Q  (Detach container)
 # docker exce –it myadmin bash
 #docker ps / docker ps -a
 # docker ps –l (Shows last container we ran)
-
 # ls /var/lib/docker/containers/
 # docker inspect myadmin
 # docker stop myadmin
 # docker rm myadmin (rmi for images)
-
 # docker top mysql3 (checking running services without inside container PID will be differed )
 # docker exec -it mysql3 bash
 # ps –ef
 UID        PID  PPID  C STIME TTY          TIME CMD
 mysql        1     0  0 Apr27 ?        00:00:04 mysqld
 root        81     0  0 00:00 ?        00:00:00 bash
+```
 
-# PID
+**PID**
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/PID.png?raw=true "Optional Title")
 
