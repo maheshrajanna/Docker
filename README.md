@@ -32,7 +32,7 @@ on laptops, data center VMs, and any cloud.”
 
 # Working with Images
 
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/images.JPEG?raw=true "Optional Title")
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/images.png?raw=true "Optional Title")
 
 # File command description
 
