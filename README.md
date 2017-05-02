@@ -28,34 +28,42 @@ on laptops, data center VMs, and any cloud.”
 
 # File command description
 
-* FROM image|scratch base image for the build
-* MAINTAINER email name of the mainainer (metadata)
-* COPY path dst copy path from the context into the container at location dst
-* ADD src dst same as COPY but untar archives and accepts http urls
-* RUN args. . . run an arbitrary command inside the container
-* USER name set the default username
-* WORKDIR path set the default working directory
-* CMD args. . . set the default command
-* ENV name value set an environment variable
+* **FROM**	image|scratch base image for the build
+* **MAINTAINER**email name of the mainainer (metadata)
+* **COPY** 	path dst copy path from the context into the container at location dst
+* **ADD** 	src dst same as COPY but untar archives and accepts http urls
+* **RUN** 	args. . . run an arbitrary command inside the container
+* **USER** 	name set the default username
+* **WORKDIR** 	path set the default working directory
+* **CMD** 	args. . . set the default command
+* **ENV** 	name value set an environment variable
 
 
-# Docker File
+#Docker File
 
-Docker file
+Docker file creation! 
+
 #vi Dockerfile
-#Simple web server
-FROM ubuntu:15.04
-RUN apt-get update
-RUN apt-get install -y apache2
-RUN apt-get install -y apache2-utils
-RUN apt-get clean
-EXPOSE 80
+
+```
+# Simple web server
+	FROM ubuntu:15.04
+	RUN apt-get update
+	RUN apt-get install -y apache2
+	RUN apt-get install -y apache2-utils
+	RUN apt-get clean
+	EXPOSE 80
 CMD ["apache2ctl","-D","FOREGROUND"]
 
-# Build image from docker file
-#docker build -t new-web:0.1 .  
-#docker history 3b29b1d73db1  (new-web image ID )
+```
 
+**Build image from docker file**
+
+```
+# docker build -t new-web:0.1 .  
+# docker history 3b29b1d73db1  (new-web image ID )
+
+```
 
 # Containers
 
@@ -128,10 +136,23 @@ root        81     0  0 00:00 ?        00:00:00 bash
 # Docker Networking
 
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/1.png?raw=true "Optional Title")
 
 
+## Netwok commands
 
-Working with Ports
+```sh
+# ip a  [ check the bridge interface/switch from Host ]
+# yum install bridge-utils
+# brctl show docker0 or brctl show (List all interface details)
+# ping 8.8.8.8 and #ip a (inside container check)
+# docker inspect de2d2ea90024 
+# ls -la /var/lib/docker/containers/de2d2e/ (resolve.conf is a copy of host file)
+# docker run –dns=8.8.4.4 –name=testdns image (then inspect dns)
+
+```
+
+### Working with Ports
 
 * [EXPOSE]   -  Document where a service is available, but not create any mapping to the host
 * [--expose] -	Expose a port at runtime, but not create any mapping to the host
@@ -142,19 +163,10 @@ Working with Ports
    “All published (-p or -P) ports are exposed, but not all exposed (EXPOSE or --expose) ports are published”
 
 
-# Netwok commands
-
-# ip a (check the bridge interface/switch)
-# yum install bridge-utils
-# brctl show docker0 or brctl show (List all interface details)
-# ping 8.8.8.8 and #ip a (inside container check)
-# docker inspect de2d2ea90024 
-# ls -la /var/lib/docker/containers/de2d2e/ (resolve.conf is a copy of host file)
-# docker run –dns=8.8.4.4 –name=testdns image (then inspect dns)
-
 
 # Port expose
 
+```sh
 #docker run -p 8080:80 --name myadmin -d phpmyadmin
 #docker run -p 8080:80/upd --name myadmin -d phpmyadmin
 #docker run -p 192.168.2.5 8080:80 --name myadmin -d phpmyadmin
@@ -162,15 +174,16 @@ Working with Ports
 --expose=2000-3000
 #docker port myadmina1 (Viewing port)
 # docker run –P –name myadmin –d phpadmin (All exposed ports are mapped to high number host ports)
-
+```
 
 # Linking containers
 
+```sh
 # docker run -it --name MyApache -v /tmp/httpd:/var/www/html -p 80:80 -d php:7.0-apache
 apt-get update
 apt-get install mysql-client
 #docker run --name mysql1 -v /opt/mysql1:/var/lib/mysql --link=MyApache:Ali-MyApache -e MYSQL_ROOT_PASSWORD=Superpassword1 -d mysql
 (connect to mysql container from apach container, without exposing port)
 #docker inspect mysql | grep Links
-
+```
 
