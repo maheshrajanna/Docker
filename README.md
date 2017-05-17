@@ -367,7 +367,7 @@ Refresh the app in your browser. The greeting should be updated, and the counter
 ### Step 6: 
 
 Experiment with some other commands
-If you want to run your services in the background, you can pass the -d flag (for “detached” mode) to docker-compose up and use docker-compose ps to see what is currently running:
+If you want to run your services in the background, you can pass the -d flag (for “detached” mode) to docker-compose up and use 'docker-compose ps' to see what is currently running:
 ```
 $ docker-compose up -d
 Starting composetest_redis_1...
