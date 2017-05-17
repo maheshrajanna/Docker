@@ -270,3 +270,50 @@ In this example, redis is the hostname of the redis container on the application
 flask
 redis
 ```
+
+Step 2: Create a Dockerfile
+
+In this step, you write a Dockerfile that builds a Docker image. The image contains all the dependencies the Python application requires, including Python itself.
+
+In your project directory, create a file named Dockerfile and paste the following:
+```
+FROM python:3.4-alpine
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
+```
+
+This tells Docker to:
+
+* Build an image starting with the Python 3.4 image.
+* Add the current directory . into the path /code in the image.
+* Set the working directory to /code.
+* Install the Python dependencies.
+* Set the default command for the container to python app.py.
+
+
+Step 3: Define services in a Compose file
+
+Create a file called docker-compose.yml in your project directory and paste the following:
+
+```
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  redis:
+    image: "redis:alpine"
+```
+
+This Compose file defines two services, web and redis. The web service:
+
+Uses an image that’s built from the Dockerfile in the current directory.
+Forwards the exposed port 5000 on the container to port 5000 on the host machine.
+Mounts the project directory on the host to /code inside the container, allowing you to modify the code without having to rebuild the image.
+The redis service uses a public Redis image pulled from the Docker Hub registry.
+
