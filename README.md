@@ -218,6 +218,9 @@ root        81     0  0 00:00 ?        00:00:00 bash
 # docker run –P –name myadmin –d phpadmin (All exposed ports are mapped to high number host ports)
 ```
 
+![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Docker_command.png?raw=true "Optional Title")
+
+
 # Linking containers
 
 ```sh
