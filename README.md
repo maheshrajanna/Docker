@@ -399,3 +399,7 @@ You can bring everything down, removing the containers entirely, with the down c
 ```
 $ docker-compose down --volumes
 ```
+
+Once you’ve got a second configuration file, tell Compose to use it with the -f option:
+
+`docker-compose -f docker-compose.yml -f production.yml up -d`
