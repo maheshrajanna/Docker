@@ -7,7 +7,7 @@ apps to be quickly assembled from components and eliminates the friction between
 QA, and production environments. As a result, IT can ship faster and run the same app, unchanged,
 on laptops, data center VMs, and any cloud.”
 
-# Docker Components
+# Contents
 
 1. Container vs VM 
 2. Docker System
@@ -229,3 +229,44 @@ apt-get install mysql-client
 #docker inspect mysql | grep Links
 ```
 
+
+# Understanding Docker Compose
+
+On this page you build a simple Python web application running on Docker Compose. The application uses the Flask framework and maintains a hit counter in Redis. While the sample uses Python, the concepts demonstrated here should be understandable even if you’re not familiar with it.
+
+Step 1: Setup
+
+1. Create a directory for the project:
+
+```
+$ mkdir composetest
+$ cd composetest
+```
+
+2. Create a file called app.py in your project directory and paste this in:
+
+```
+from flask import Flask
+from redis import Redis
+
+app = Flask(__name__)
+redis = Redis(host='redis', port=6379)
+
+@app.route('/')
+def hello():
+    count = redis.incr('hits')
+    return 'Hello World! I have been seen {} times.\n'.format(count)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
+
+```
+
+In this example, redis is the hostname of the redis container on the application’s network. We use the default port for Redis, 6379.
+
+3. Create another file called requirements.txt in your project directory and paste this in:
+
+```
+flask
+redis
+```
