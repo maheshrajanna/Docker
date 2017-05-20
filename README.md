@@ -68,22 +68,62 @@ Docker file creation!
 	RUN apt-get clean
 	EXPOSE 80
 CMD ["apache2ctl","-D","FOREGROUND"]
-
 ```
 
-Define and run a user in your Dockerfile, so you don’t run as root inside the container:
+### Build image from docker file
+
+```
+# docker build -t new-web:0.1 .    [Building a docker image from file "." represents the docker file in same location]
+# docker history containerID       [Checking last build detials]
+```
+
+### Define and run a user in your Dockerfile, so you don’t run as root inside the container:
 
 ```
 # RUN groupadd -r user && useradd -r -g user user
 ```
 
-**Build image from docker file**
+
+## Lifecycle of Containers (Create, Run, Build, Commit)
 
 ```
-# docker build -t new-web:0.1 .    [Building a docker image from file "." represents the docker file in same location]
-# docker history containerID       [Checking last build detials]
+# docker images  		Shows all images
+# docker import name.tar.gz 	Creates an image from a tarball
+# docker build . 		Creates image from Dockerfile
+# docker commit containerID 	Creates image from a container, pausing it temporarily if it is running
+# docker rmi imagesID 		Removes an image
+# docker load name.tar.gz	Loads an image from a tar archive as STDIN, including images and tags 
+# docker save name.tar.gz	Saves an image to a tar archive stream to STDOUT with all parent layers, tags and versions
+# docker history imageID 	Shows history of image
+# docker tag ImageID		Tags an image to a name (local or registry)
+```
+
+### Images Created by Redirection
+
+Load an image from file:
+```
+docker load < my_image.tar.gz
+```
+Save an existing image:
+```
+docker save my_image•my_tag > my_image.tar.gz
+```
+
+### Import/Export Container
+
+Import a container as an image from file: 
+#docker import Name.tar.gz Creates an image from a tarball
 
 ```
+cat my_container.tar.gz | docker import - my_image•my_tag
+```
+
+Export an existing container:
+
+```
+docker export my_container > my_container.tar.gz
+```
+
 
 # Containers
 
@@ -127,33 +167,29 @@ Working with containers
 
 # ps –ef  (Checking PID inside container)
 
-```
-### Images Created by Redirection
-
-Load an image from file:
-```
-docker load < my_image.tar.gz
-```
-Save an existing image:
-```
-docker save my_image•my_tag > my_image.tar.gz
-```
-
-### Import/Export Container
-
-Import a container as an image from file:
+# docker commit containerID (Creates image from a container, pausing it temporarily if it is running)
 
 ```
-cat my_container.tar.gz | docker import - my_image•my_tag
+
+Docker Volume Lifecycle
+```
+# docker volume create
+# docker volume rm
+```
+Volume Information
+```
+# docker volume ls
+# docker volume inspect
+```
+Set volumes to be read only:
+```
+docker run -v $(pwd)/secrets:/secrets:ro debian
 ```
 
-Export an existing container:
-
+Set memory and CPUs:
 ```
-docker export my_container > my_container.tar.gz
+docker run -it -c 5 -mem 512m --name:mahesh imageid
 ```
-
-
 **PID**
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/PID.png?raw=true "Optional Title")
@@ -171,6 +207,15 @@ docker export my_container > my_container.tar.gz
 # Working with Registries
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/repo.png?raw=true "Optional Title")
+
+
+```
+# docker login • 		Logs into a registry
+# docker logout • 	Logs out from a registry
+# docker search • 	Searches registry for image
+# docker pull • 	Pulls an image from registry to local machine
+# docker push • 	Pushes an image to the registry from local machine
+```
 
 # Working with Docker Hub
 
