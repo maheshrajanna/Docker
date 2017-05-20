@@ -71,6 +71,12 @@ CMD ["apache2ctl","-D","FOREGROUND"]
 
 ```
 
+Define and run a user in your Dockerfile, so you don’t run as root inside the container:
+
+```
+# RUN groupadd -r user && useradd -r -g user user
+```
+
 **Build image from docker file**
 
 ```
@@ -119,12 +125,34 @@ Working with containers
 
 # docker top myadmin (checking running services without outside container PID will be differed form inside container)
 
-# ps –ef  (Chechinf PID inside container)
+# ps –ef  (Checking PID inside container)
 
-UID        PID  PPID  C STIME TTY          TIME CMD
-mysql        1     0  0 Apr27 ?        00:00:04 mysqld
-root        81     0  0 00:00 ?        00:00:00 bash
 ```
+### Images Created by Redirection
+
+Load an image from file:
+```
+docker load < my_image.tar.gz
+```
+Save an existing image:
+```
+docker save my_image•my_tag > my_image.tar.gz
+```
+
+### Import/Export Container
+
+Import a container as an image from file:
+
+```
+cat my_container.tar.gz | docker import - my_image•my_tag
+```
+
+Export an existing container:
+
+```
+docker export my_container > my_container.tar.gz
+```
+
 
 **PID**
 
