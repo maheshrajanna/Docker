@@ -293,7 +293,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 
 ### Linking containers
 
-```sh
+```
 # docker run -it --name MyApache -v /tmp/httpd:/var/www/html -p 80:80 -d php:7.0-apache
 apt-get update
 apt-get install mysql-client
