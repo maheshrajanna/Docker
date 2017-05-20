@@ -302,6 +302,21 @@ apt-get install mysql-client
 #docker inspect mysql | grep Links
 ```
 
+### Integrating Custom Network In Your Docker Containers
+
+Stop docker service and follow below steps
+```
+# service docker.io stop
+
+# ip link add br10 type bridge
+
+# ip addr add 10.10.100.1/24 dev br10
+
+# ip link set br10 up
+
+# docker.io -d -b br10 & (for centos os)
+```
+
 
 # Understanding Docker Compose
 
