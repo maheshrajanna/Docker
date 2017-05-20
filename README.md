@@ -12,32 +12,27 @@ on laptops, data center VMs, and any cloud.”
 
 # Contents
 
-1. Container vs VM 
-2. Docker System
-3. Images / Working with File
-4. Containers / Working with Containers
-5. Registries and Repositories / Working with Registries 
-6. Docker Networking / Working with Networking
-
-# Container vs VM
-
-![Alt text](https://github.com/maheshrajanna/Docker/blob/master/VM.png?raw=true "Optional Title")
+1. Docker System
+2. Images / Working with File
+3. Containers / Working with Containers
+4. Registries and Repositories / Working with Registries 
+5. Docker Networking / Working with Networking
 
 
-# Docker System
+## Docker System
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/System.png?raw=true "Optional Title")
 
 
-# Images
+## Images
 
 * Images are static frozen time containers where we launch containers from.  Images may be single or comprised of 2 or more layered images.
 
-# Working with Images
+### Working with Images
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/images.png?raw=true "Optional Title")
 
-# File command description
+### File command description
 
 * **FROM**	image|scratch base image for the build
 * **MAINTAINER**email name of the mainainer (metadata)
@@ -50,7 +45,7 @@ on laptops, data center VMs, and any cloud.”
 * **ENV** 	name value set an environment variable
 
 
-#Docker File
+### Docker File
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/file.png?raw=true "Optional Title")
 
@@ -127,7 +122,6 @@ docker export my_container > my_container.tar.gz
 
 # Containers
 
-# What is container?
 A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings.
 LIGHTWEIGHT
 STANDARD
@@ -204,7 +198,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 * Docker Hub
 * Docker Hub is a registry (repository) where we pull images, public by default. In registry there will be number of repos. We can maintain private registry at docker hub. 
 
-# Working with Registries
+### Working with Registries
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/repo.png?raw=true "Optional Title")
 
@@ -234,7 +228,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 ```
 
 
-# Private Docker Registries
+## Private Docker Registries
 
   We can creted our own private registry in our local host by creating "registry" container. 
 ```
@@ -257,7 +251,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/1.png?raw=true "Optional Title")
 
 
-## Netwok commands
+### Netwok commands
 
 ```sh
 # ip a  [ check the bridge interface/switch from Host ]
@@ -282,7 +276,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 
 
 
-# Port expose
+### Port expose
 
 ```sh
 #docker run -p 8080:80 --name myadmin -d phpmyadmin
@@ -297,7 +291,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Docker_command.png?raw=true "Optional Title")
 
 
-# Linking containers
+### Linking containers
 
 ```sh
 # docker run -it --name MyApache -v /tmp/httpd:/var/www/html -p 80:80 -d php:7.0-apache
