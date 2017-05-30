@@ -17,6 +17,8 @@ on laptops, data center VMs, and any cloud.”
 3. Containers / Working with Containers
 4. Registries and Repositories / Working with Registries 
 5. Docker Networking / Working with Networking
+6. Watchtower, Docker-slim and docker-gc
+7. Docker compose
 
 
 ## Docker System
@@ -317,6 +319,35 @@ Stop docker service and follow below steps
 # docker.io -d -b br10 & (for centos os)
 ```
 
+# Watchtower and Docker-gc
+
+### Watchtower
+
+*Automatically update Docker containers* 
+
+Watchtower monitors running containers and watches for changes to the images those containers were originally started from. When Watchtower detects that an image has changed, it automatically restarts the container using the new image.
+
+```
+# docker run -d --name watchtower --rm -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower --interval 30
+```
+In the command above, we started Watchtower container with a mounted file `/var/run/docker.sock`. This is required so that Watchtower can interact with Docker daemon API. We passed an option `interval` of 30 seconds. This option defines the Watchtower poll interval. 
+
+### Docker-gc
+
+*Garbage collection of container and images*
+
+The docker-gc utility helps clean up your Docker host by removing containers and images that are not required. It removes all the containers that existed more than an hour ago. Also, it removes images that don’t belong to any remaining containers.
+
+You can use docker-gc both as a script and container. We will run docker-gc as a container. Let’s use docker-gc to find all the containers and images that can be removed.
+
+```
+# docker run  --rm -v /var/run/docker.sock:/var/run/docker.sock -e DRY_RUN=1 spotify/docker-gc
+```
+In the command shown above, we mounted Docker socket file so that docker-gc can interact with Docker API. We passed an environment variable DRY_RUN=1 to find which containers and images will be removed. If we don’t provide this option, docker-gc will remove all of them. It is good to first verify everything docker-gc will clean
+
+```
+# docker run  --rm -v /var/run/docker.sock:/var/run/docker.sock -e spotify/docker-gc
+```
 
 # Understanding Docker Compose
 
