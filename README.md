@@ -17,7 +17,7 @@ on laptops, data center VMs, and any cloud.”
 3. Containers / Working with Containers
 4. Registries and Repositories / Working with Registries 
 5. Docker Networking / Working with Networking
-6. Watchtower, Docker-slim and docker-gc
+6. Watchtower and docker-gc
 7. Docker compose
 
 
