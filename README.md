@@ -352,7 +352,7 @@ In the command shown above, we mounted Docker socket file so that docker-gc can 
 
 # 7. Docker Security 
 
-   There are two key parts to Docker: Docker Engine, which is the runtime, and Docker Hub, which is the official registry of Docker containers. It’s equally important to secure both parts of the system. And to do that, it takes an understanding of what they each consist of, which components need to be secured, and how. Let’s start with Docker Engine.
+   There are two key parts to Docker: **Docker Engine**, which is the runtime, and **Docker Hub**, which is the official registry of Docker containers. It’s equally important to secure both parts of the system. And to do that, it takes an understanding of what they each consist of, which components need to be secured, and how. Let’s start with Docker Engine.
 
 ### Docker Engine
 
