@@ -352,7 +352,7 @@ In the command shown above, we mounted Docker socket file so that docker-gc can 
 
 # 7. Docker Security 
 
-	There are two key parts to Docker: Docker Engine, which is the runtime, and Docker Hub, which is the official registry of Docker containers. It’s equally important to secure both parts of the system. And to do that, it takes an understanding of what they each consist of, which components need to be secured, and how. Let’s start with Docker Engine.
+   There are two key parts to Docker: Docker Engine, which is the runtime, and Docker Hub, which is the official registry of Docker containers. It’s equally important to secure both parts of the system. And to do that, it takes an understanding of what they each consist of, which components need to be secured, and how. Let’s start with Docker Engine.
 
 ### Docker Engine
 
@@ -375,7 +375,7 @@ Similar to AppArmor, **Seccomp** uses security profiles to restrict the number o
 
 ### Docker Hub
 
-	While Docker Engine manages containers, it needs the other half of the Docker stack to pull container images from. That part is Docker Hub—the container registry where container images are stored and shared.
+  While Docker Engine manages containers, it needs the other half of the Docker stack to pull container images from. That part is Docker Hub—the container registry where container images are stored and shared.
 
 Container images can be created by anyone, and made publicly available for anyone to download. This is both a good thing and a bad thing. It’s good because it enables collaboration between developers, and makes it extremely easy to spin up an instance of an operating system or an app with just a few clicks. However, it could turn bad if you download a public container image that has a vulnerability.
 
