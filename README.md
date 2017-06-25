@@ -352,9 +352,38 @@ In the command shown above, we mounted Docker socket file so that docker-gc can 
 
 # 7. Docker Security 
 
------------
-Building
------------
+	There are two key parts to Docker: Docker Engine, which is the runtime, and Docker Hub, which is the official registry of Docker containers. It’s equally important to secure both parts of the system. And to do that, it takes an understanding of what they each consist of, which components need to be secured, and how. Let’s start with Docker Engine.
+
+### Docker Engine
+
+Docker Engine hosts and runs containers from the container image file. It also manages networks and storage volumes. There are two key aspects to securing Docker Engine: namespaces and control groups.
+
+**Namespaces** is a feature Docker inherits from the Linux kernel. Namespaces isolate containers from each other so that each process within a container has no visibility into a process running in a neighboring container.
+
+Initially, Docker containers were run as root users by default, which was cause for a lot of concern. However, since v1.10, Docker supports namespaces, allowing you to run containers as non-root users. Namespaces are switched off by default in Docker, so need to be activated before you can use them.
+
+
+Support for **control groups, or cgroups,** in Docker allows you to set limits for CPU, memory, networking, and block IO. By default containers can use an unlimited amount of system resources, so it’s important to set limits. Otherwise the entire system could be affected by a single hungry container.
+
+Apart from namespaces and control groups, Docker Engine can be further hardened by the use of additional tools like SELinux and AppArmor.
+
+**SELinux** provides access control for the kernel. It can manage access based on the type of process running in the container, or the level of the process, according to policies you set for the host. Based on this policy, it either enables or restricts access to the host.
+
+**AppArmor** attaches a security profile to every process running on a host. The profile defines what resources a process can utilize. Docker applies a default profile to processes, but you can apply a custom profile as well.
+
+Similar to AppArmor, **Seccomp** uses security profiles to restrict the number of calls a process can make. That rounds off the list of Linux-based kernel security features available in Docker Engine.
+
+### Docker Hub
+
+	While Docker Engine manages containers, it needs the other half of the Docker stack to pull container images from. That part is Docker Hub—the container registry where container images are stored and shared.
+
+Container images can be created by anyone, and made publicly available for anyone to download. This is both a good thing and a bad thing. It’s good because it enables collaboration between developers, and makes it extremely easy to spin up an instance of an operating system or an app with just a few clicks. However, it could turn bad if you download a public container image that has a vulnerability.
+
+The rule of thumb is to always download official repositories, which are available for most common tools, and never download repositories from unknown authors. On top of this, each downloaded container image should be scanned for vulnerabilities.
+
+For users of private repositories, **Docker Hub** will scan downloaded container images. It scans a few repositories for free, after which you need to pay for scanning as an add-on.
+
+Docker Hub isn’t the only registry service for Docker containers. Other popular registries include Quay, AWS ECR, and GitLab Container Registry. These tools also have scanning capabilities of their own. Further, Docker Trusted Registry (DTR) can be installed behind your firewall for a fee.
 
 
 # 8. Understanding Docker Compose
