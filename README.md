@@ -18,15 +18,16 @@ on laptops, data center VMs, and any cloud.”
 4. Registries and Repositories / Working with Registries 
 5. Docker Networking / Working with Networking
 6. Watchtower and docker-gc
-7. Docker compose
+7. Docker Security / Namespace, cgroups, SELinux, AppArmor and Seccomp  
+8. Docker compose
 
 
-## Docker System
+## 1. Docker System
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/System.png?raw=true "Optional Title")
 
 
-## Images
+## 2. Images
 
 * Images are static frozen time containers where we launch containers from.  Images may be single or comprised of 2 or more layered images.
 
@@ -122,7 +123,7 @@ docker export my_container > my_container.tar.gz
 ```
 
 
-# Containers
+# 3. Containers
 
 A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings.
 LIGHTWEIGHT
@@ -191,7 +192,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/PID.png?raw=true "Optional Title")
 
 
-# Registries and Repositories
+# 4. Registries and Repositories
 
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/Reg.png?raw=true "Optional Title")
@@ -247,7 +248,7 @@ docker run -it -c 5 -mem 512m --name:mahesh imageid
 ```
 
 
-# Docker Networking
+# 5. Docker Networking
 
 
 ![Alt text](https://github.com/maheshrajanna/Docker/blob/master/1.png?raw=true "Optional Title")
@@ -319,7 +320,7 @@ Stop docker service and follow below steps
 # docker.io -d -b br10 & (for centos os)
 ```
 
-# Watchtower and Docker-gc
+# 6. Watchtower and Docker-gc
 
 ### Watchtower
 
@@ -349,7 +350,14 @@ In the command shown above, we mounted Docker socket file so that docker-gc can 
 # docker run  --rm -v /var/run/docker.sock:/var/run/docker.sock -e spotify/docker-gc
 ```
 
-# Understanding Docker Compose
+# 7. Docker Security 
+
+-----------
+Building
+-----------
+
+
+# 8. Understanding Docker Compose
 
 Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application’s services. Then, using a single command, you create and start all the services from your configuration. To learn more about all the features of Compose see the list of features.
 
